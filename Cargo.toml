@@ -1,0 +1,15 @@
+[package]
+name = "instrument-ctl"
+description = "Connect to, command, and query intruments"
+version = "0.1.0"
+edition = "2021"
+authors = ["Kristofer Karam"]
+readme = "README.md"
+license-file = "LICENSE"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1"
+thiserror = "1"
+rs-usbtmc = "0.1"
