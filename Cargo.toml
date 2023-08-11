@@ -6,6 +6,8 @@ edition = "2021"
 authors = ["Kristofer Karam"]
 readme = "README.md"
 license-file = "LICENSE"
+repository = "https://github.com/KrisNK/rs-instrument-ctl"
+homepage = "https://github.com/KrisNK/rs-instrument-ctl"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
