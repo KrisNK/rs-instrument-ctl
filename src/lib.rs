@@ -48,6 +48,7 @@
 //! 
 
 use std::time::Duration;
+use std::sync::Arc;
 
 mod interface;
 use interface::InstrumentClient;
@@ -56,7 +57,7 @@ use rs_usbtmc::UsbtmcClient;
 use anyhow::{Result, anyhow};
 
 pub struct Instrument {
-    client: Box<dyn InstrumentClient>,
+    client: Arc<dyn InstrumentClient>,
 }
 
 impl Instrument {
@@ -86,7 +87,7 @@ impl Instrument {
             // the device is USB
             let vid = u16::from_str_radix(vid, 16)?;
             let pid = u16::from_str_radix(pid, 16)?;
-            let client = Box::new(UsbtmcClient::connect(vid, pid)?);
+            let client = Arc::new(UsbtmcClient::connect(vid, pid)?);
 
             return Ok(Instrument { client })
         } else {
