@@ -60,6 +60,10 @@ pub struct Instrument {
     client: Arc<dyn InstrumentClient + 'static>,
 }
 
+unsafe impl Send for Instrument {}
+unsafe impl Sync for Instrument {}
+
+
 impl Instrument {
     /// ## Connect
     /// 
