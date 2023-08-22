@@ -118,7 +118,11 @@ impl Instrument {
     /// - `cmd` -> the command to send
     ///
     pub fn command(&self, cmd: &str) -> Result<()> {
-        self.client.command(cmd)
+        let mut cmd = String::from(cmd);
+        if !cmd.ends_with("\n") {
+            cmd.push('\n');
+        }
+        self.client.command(&cmd)
     }
 
     /// ### Query
@@ -130,7 +134,11 @@ impl Instrument {
     /// - `cmd` -> the command to send
     ///
     pub fn query(&self, cmd: &str) -> Result<String> {
-        self.client.query(cmd)
+        let mut cmd = String::from(cmd);
+        if !cmd.ends_with("\n") {
+            cmd.push('\n');
+        }
+        self.client.query(&cmd)
     }
 
     /// ### Query Raw
@@ -142,6 +150,10 @@ impl Instrument {
     /// - `cmd` -> the command to send
     ///
     pub fn query_raw(&self, cmd: &str) -> Result<Vec<u8>> {
-        self.client.query_raw(cmd)
+        let mut cmd = String::from(cmd);
+        if !cmd.ends_with("\n") {
+            cmd.push('\n');
+        }
+        self.client.query_raw(&cmd)
     }
 }
