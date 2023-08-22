@@ -57,7 +57,7 @@ use rs_usbtmc::UsbtmcClient;
 use anyhow::{Result, anyhow};
 
 pub struct Instrument {
-    client: Arc<dyn InstrumentClient>,
+    client: Arc<dyn InstrumentClient + 'static>,
 }
 
 impl Instrument {
